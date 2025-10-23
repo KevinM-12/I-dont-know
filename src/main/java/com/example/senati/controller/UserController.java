@@ -18,17 +18,17 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/api/users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/")
+    @PostMapping("/api/users")
     public ResponseEntity<User> newUser(@RequestBody User user){
         return userService.newUser(user);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/users{id}")
     public Response deleteUser(@PathVariable int id){
         return  userService.deleteUser(id);
     }
@@ -37,7 +37,7 @@ public class UserController {
     // return ResponseEntity.noContent().build();
     //}
 
-    @PutMapping ("/{id}")
+    @PutMapping ("/api/users{id}")
     public ResponseEntity<User> newUser(@PathVariable int id,@RequestBody User user){
         return userService.updateUser(id, user);
     }
